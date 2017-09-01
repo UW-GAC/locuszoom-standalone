@@ -1690,7 +1690,9 @@ panel.bed <- function(bed_data,track_height,startbp,endbp) {
     
     is_white = bed_data$color == "#FFFFFF";
     if (any(is_white)) {
-      bed_data[is_white,]$color = "#E5E5E5";
+      # bug fix 6/2/17 by Deepti Jain
+        #bed_data[is_white,]$color = "#E5E5E5";
+        bed_data$color[is_white] = "#E5E5E5";
     }
   } else {
     bed_data$color = "black";
